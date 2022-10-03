@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity_add_coche">
+
+    <EditText
+        android:id="@+id/txtMarcaCoche"
+        android:layout_width="359dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="240dp"
+        android:ems="10"
+        android:hint="Marca"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txtModeloCoche"
+        android:layout_width="365dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="Modelo"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.608"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtMarcaCoche"
+        app:layout_constraintVertical_bias="0.01" />
+
+    <EditText
+        android:id="@+id/txtColorCoche"
+        android:layout_width="362dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="Color"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtModeloCoche" />
+
+    <Button
+        android:id="@+id/btnCancelarCoche"
+        android:layout_width="172dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="32dp"
+        android:text="CANCELAR"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtColorCoche" />
+
+    <Button
+        android:id="@+id/btnCrearCoche"
+        android:layout_width="176dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="CREAR"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.82"
+        app:layout_constraintStart_toEndOf="@+id/btnCancelarCoche"
+        app:layout_constraintTop_toBottomOf="@+id/txtColorCoche" />
+</androidx.constraintlayout.widget.ConstraintLayout>
