@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".ActiviEfemplo02">
+
+    <TextView
+        android:id="@+id/txtCrearcochesMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="Coches:0"
+        android:textColor="#64F169" />
+
+    <Button
+        android:id="@+id/btnCrearmotoMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Crear Coches" />
+
+    <TextView
+        android:id="@+id/txtCocheMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Motos:0"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnCrearmotoMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Creara Motos" />
+
+    <TextView
+        android:id="@+id/txtcrearbici"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#CDDC39"
+        android:gravity="center"
+        android:text="Bici:0" />
+
+    <Button
+        android:id="@+id/btnCrearBici"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Crear bici" />
+</LinearLayout>

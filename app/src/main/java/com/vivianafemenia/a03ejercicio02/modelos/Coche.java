@@ -1,4 +1,4 @@
-package com.vivianafemenia.a03ejercicio02;
+package com.vivianafemenia.a03ejercicio02.modelos;
 
 import java.io.Serializable;
 

@@ -8,7 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class activity_add_moto extends AppCompatActivity {
+import com.vivianafemenia.a03ejercicio02.modelos.Moto;
+
+public class Activity_add_moto extends AppCompatActivity {
     private EditText txtmarcamoto;
     private EditText txtmodelomoto;
     private EditText txtcilindrada;
@@ -24,15 +26,19 @@ public class activity_add_moto extends AppCompatActivity {
         btnCrearmoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Moto moto=new Moto(txtcilindrada.getText().toString(),
-                        txtmarcamoto.getText().toString(),txtmodelomoto.getText().toString());
+                if(txtcilindrada.getText().toString().trim().isEmpty() &&
+                txtmarcamoto.getText().toString().trim().isEmpty()
+                        && txtmodelomoto.getText().toString().trim().isEmpty()) {
+                    Moto moto = new Moto(txtcilindrada.getText().toString().trim(),
+                            txtmarcamoto.getText().toString().trim(), txtmodelomoto.getText().toString().trim());
+
                 Bundle bundle=new Bundle();
-                bundle.putSerializable("moto",moto);
+                bundle.putSerializable("Moto",moto);
                 Intent intent=new Intent();
                 intent.putExtras(bundle);
                 setResult(RESULT_OK,intent);
                 finish();
-            }
+            }}
         });
         btnCancelarmoto.setOnClickListener(new View.OnClickListener() {
             @Override

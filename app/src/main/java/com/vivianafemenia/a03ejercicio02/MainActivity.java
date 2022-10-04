@@ -11,26 +11,34 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.vivianafemenia.a03ejercicio02.Actividades.Activity_add_bici;
+import com.vivianafemenia.a03ejercicio02.modelos.Bici;
+import com.vivianafemenia.a03ejercicio02.modelos.Coche;
+import com.vivianafemenia.a03ejercicio02.modelos.Moto;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
+    //Atributos para vista
     private Button btnAddCoche;
     private Button btnAddBici;
     private Button btntAddMoto;
     private TextView txtCoche;
     private TextView txtBici;
     private  TextView txtMoto;
-
+//Atributos para launchers
     private ActivityResultLauncher<Intent>launcherCoche;
     private ActivityResultLauncher<Intent>launcherMoto;
     private ActivityResultLauncher<Intent>launcherBici;
+//Atributos para la lógica
 
-    private ArrayList<Coche>coches=new ArrayList<>();
-    private ArrayList<Moto> motos=new ArrayList<>();
-    private ArrayList<Bici>bicis=new ArrayList<>();
+    private ArrayList<Coche>listacoches;
+    private ArrayList<Moto> listamotos;
+    private ArrayList<Bici>listabicis;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,22 +51,22 @@ public class MainActivity extends AppCompatActivity {
         btntAddMoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               Intent intent= new Intent(MainActivity.this,activity_add_moto.class);
-               launcherMoto.launch(intent);
+
+                launcherMoto.launch(new Intent(MainActivity.this, Activity_add_moto.class));
             }
         });
         btnAddBici.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this,activity_add_bici.class);
-                launcherBici.launch(intent);
+
+                launcherBici.launch( new Intent(MainActivity.this, Activity_add_bici.class));
             }
         });
         btnAddCoche.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this,activity_add_coche.class);
-                launcherCoche.launch(intent);
+
+                launcherCoche.launch(new Intent(MainActivity.this, Activity_add_coche.class));
             }
         });
     }
@@ -72,12 +80,14 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onActivityResult(ActivityResult result) {
                         if(result.getResultCode()==RESULT_OK){
-                            if(result.getData()!=null){
+                            if(result.getData()!=null && result.getData().getExtras()!=null){
                             Bundle bundle= result.getData().getExtras();
                             Coche coche=(Coche) bundle.getSerializable("Coche");
-                            coches.add(coche);
-                            txtCoche.setText(String.valueOf(coches.size()));
+                            listacoches.add(coche);
+                            txtCoche.setText("Coche"+(listacoches.size()));
                             }
+                        }else {
+                            Toast.makeText(MainActivity.this, "Activity Cancelada", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -88,8 +98,8 @@ public class MainActivity extends AppCompatActivity {
                     if(result.getData()!=null){
                         Bundle bundle= result.getData().getExtras();
                         Bici bici =(Bici) bundle.getSerializable("Bici");
-                        bicis.add(bici);
-                        txtBici.setText(String.valueOf(bicis.size()));
+                        listabicis.add(bici);
+                        txtBici.setText(String.valueOf(listabicis.size()));
                     }
                 }
             }
@@ -102,8 +112,8 @@ public class MainActivity extends AppCompatActivity {
                     if(result.getData()!=null){
                         Bundle bundle= result.getData().getExtras();
                         Moto moto=(Moto) bundle.getSerializable("Coche");
-                        motos.add(moto);
-                        txtMoto.setText(String.valueOf(motos.size()));
+                        listamotos.add(moto);
+                        txtMoto.setText(String.valueOf(listamotos.size()));
                     }
                 }
             }
@@ -119,5 +129,9 @@ public class MainActivity extends AppCompatActivity {
         txtCoche=findViewById(R.id.txtcocheMain);
         txtBici=findViewById(R.id.txtBiciMain);
         txtMoto=findViewById(R.id.txtMotoMain);
+
+        listacoches=new ArrayList<>();
+        listamotos=new ArrayList<>();
+        listabicis=new ArrayList<>();
     }
 }

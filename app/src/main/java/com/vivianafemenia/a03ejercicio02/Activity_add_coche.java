@@ -8,9 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import java.io.Serializable;
+import com.vivianafemenia.a03ejercicio02.modelos.Coche;
 
-public class activity_add_coche extends AppCompatActivity {
+public class Activity_add_coche extends AppCompatActivity {
     private EditText txtmarcacoche;
     private EditText txtmodelocoche;
     private EditText txtcolorcoche;
@@ -26,14 +26,19 @@ public class activity_add_coche extends AppCompatActivity {
         btnCrearcoche.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Coche coche=new Coche(txtmodelocoche.getText().toString(),txtmarcacoche.getText().toString()
-                        ,txtcolorcoche.getText().toString());
+                if(txtmodelocoche.getText().toString().trim().isEmpty() && txtmarcacoche.getText().toString().trim().isEmpty()&&
+                        txtcolorcoche.getText().toString().trim().isEmpty()){
+
+                    Coche coche=new Coche(txtmodelocoche.getText().toString().trim(),txtmarcacoche.getText().toString().trim()
+                        ,txtcolorcoche.getText().toString().trim());
+
                 Bundle bundle=new Bundle();
                 bundle.putSerializable("Coche",coche);
                 Intent intent=new Intent();
                 intent.putExtras(bundle);
                 setResult(RESULT_OK,intent);
                 finish();
+            }
             }
         });
 
